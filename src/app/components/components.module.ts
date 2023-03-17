@@ -18,6 +18,8 @@ import { PeliculasPosterGridComponent } from './peliculas-poster-grid/peliculas-
     SlideshowComponent,
     PeliculasPosterGridComponent
   ],
+
+
   imports: [
     CommonModule,
     RouterModule

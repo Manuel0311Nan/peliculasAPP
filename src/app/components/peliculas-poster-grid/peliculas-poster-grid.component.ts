@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PeliculasPosterGridComponent implements OnInit {
 
+
   @Input()
   movies: Movie[] = [];
 
@@ -15,6 +16,7 @@ export class PeliculasPosterGridComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
