@@ -1,1 +1,10 @@
-<p>buscar works!</p>
+<h1>Películas encontradas de:<small class="text-light text-capitalize"> {{ texto }}</small></h1>
+<hr>
+<div class="row">
+  <div class="col">
+    <!-- <app-slideshow [movies] = "movies"></app-slideshow>
+    <hr> -->
+    <app-peliculas-poster-grid
+    *ngIf="movies.length > 0" [movies] = "movies"></app-peliculas-poster-grid>
+  </div>
+</div>

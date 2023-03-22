@@ -1,1 +1,21 @@
-<p>peliculas works!</p>
+<div class="row" *ngIf="pelicula">
+  <div class="col-md-6">
+    <img src="https://image.tmdb.org/t/p/w1280/{{ pelicula.poster_path }}" class="img-thumbnail poster swiper-scrollbar-cursor-pointer" [alt]="pelicula.title">
+  </div>
+  <div class="col-md-6">
+    <h2>{{pelicula.title}}</h2>
+
+  <div class="row">
+    <div class="col text-light h5"> Nota media por votación de espectadores: {{ pelicula.vote_average | number : "1.1-2" }} puntos sobre 10</div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="text-light bg-dark rounded-1 p-3">{{pelicula.overview}}</p>
+    </div>
+  </div>
+  <button class="btn btn-dark w-25 mt-4 mx-auto" (click)="onReturnHome()">Volver</button>
+</div>
+
+
+
+</div>

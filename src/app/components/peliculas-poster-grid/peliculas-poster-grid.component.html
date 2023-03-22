@@ -2,12 +2,16 @@
   <div class="col-md-3 mb-5" *ngFor="let movie of movies">
     <img
       src="https://image.tmdb.org/t/p/w1280/{{ movie.poster_path }}"
-      class="img-fluid poster"
+      class="img-fluid poster swiper-scrollbar-cursor-pointer"
+      (click)="onMovieClick(movie)"
     />
     <div>
       <h6 class="col-12 text-white text-center">{{movie.title}}</h6>
       <div class="col-12 text-white text-center">
         {{ movie.vote_average | number : "1.1-2" }}
+      </div>
+      <div class="col-12 text-white text-center">
+        {{ movie.release_date }}
       </div>
     </div>
   </div>
