@@ -1,8 +1,10 @@
+
 import { Cartelera, Movie } from './../interfaces/carteleraResponse';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap, map, of } from 'rxjs';
+import { Observable, tap, map, of, catchError } from 'rxjs';
 import { MovieDetails } from '../interfaces/movieDetail';
+import { CastDetail } from '../interfaces/castDetail';
 
 @Injectable({
   providedIn: 'root',
@@ -55,8 +57,20 @@ export class PeliculasService {
   }
   getPeliculaDetail(id: string) {
     const params = { ...this.params };
-    return this.http.get<MovieDetails>(`${this.baseUrl}/movie/${id} `, {
+    return this.http.get<MovieDetails>(`${this.baseUrl}/movie/${id}`, {
       params
-    });
+    }).pipe(
+      catchError(err => of(null ) )
+    )
+  }
+
+  getCastDetail(id: string) {
+    const params = { ...this.params };
+    return this.http.get<CastDetail>(`${this.baseUrl}/movie/${id}/credits`, {
+      params
+    }).pipe(
+      map(resp => resp.cast),
+      catchError(err => of( [] ) ),
+    );
     }
 }
